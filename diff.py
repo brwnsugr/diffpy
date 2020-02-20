@@ -70,4 +70,7 @@ class DiffPy:
                 return True
         return False 
 
+    def __test(self):
+        pass
+
     
