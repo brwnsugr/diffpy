@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*- 
-from config import env
-from controller import diffs_controller
+from diffpy.config import env
+from diffpy.controller import diffs_controller
 import glob
 import os.path
 import sys
+
 
 class DiffPy:
     def __init__(self, old=' ', new=' '):

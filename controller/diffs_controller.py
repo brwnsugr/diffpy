@@ -101,7 +101,5 @@ class DiffsController:
 
 
 
-    # def __line_diff_check(self, str1, str2):
-    #     for i in range len(str1)
 
 
