@@ -1,12 +1,14 @@
+from diffpy.config import env
 class DiffsController:
 
-    def __init__(self, old=None, new=None):
-        self.__old_text = self.__text_process(old)
-        self.__new_text = self.__text_process(new)
+    def __init__(self, old=None, new=None, path = None):
+        self.__path = path
+        self.__old_text = self.__text_process(old, self.__path)
+        self.__new_text = self.__text_process(new, self.__path)
         self.__compare_files()
          
-    def __text_process(self, file):
-        f = open('./text/'+file, 'r')
+    def __text_process(self, file_name, path):
+        f = open(path+'/'+file_name, 'r')
         lines = f.readlines()
         return lines
 

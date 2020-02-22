@@ -7,13 +7,15 @@ import sys
 
 
 class DiffPy:
-    def __init__(self, old=' ', new=' '):
+    def __init__(self, old=' ', new=' ', path = ''):
         self.__old = old.strip()
         self.__new = new.strip()
+        self.__path = self.__get_file_path(path)
         self.__check_file_name()
+        
 
     def diff(self):
-        diffs_controller.DiffsController(self.__old, self.__new)
+        diffs_controller.DiffsController(self.__old, self.__new, self.__path)
 
     def __check_file_name(self):
         self.__check_number_of_args()
@@ -64,13 +66,16 @@ class DiffPy:
             print(env.BasicErrorMessage, e), sys.exit(1)
 
     def __find_file_name(self, file_name):
-        file_list = glob.glob('./text/*'+os.path.splitext(file_name)[-1])
+        dir = env.root_dir
+        self.__path
+        file_list = glob.glob(self.__path+'/*'+os.path.splitext(file_name)[-1])
         for item in file_list:
             if os.path.basename(item) == file_name:
                 return True
         return False 
 
-    def __test(self):
-        pass
+    def __get_file_path(self, path):
+        dir = env.root_dir + path.strip()
+        return dir
 
     
